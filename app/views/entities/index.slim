@@ -1,0 +1,17 @@
+.row.d-flex
+  - @entities.each do |entity|
+    ruby:
+      name_entity = entity.get_tag(:name)
+      annotation_entity = entity.get_tag(:annotation)
+      name_entity_idtf = name_entity.params[:identifier]
+      name_entity_text = name_entity.as_text
+
+    .card.bg-light.mb-3.mr-2 style=("max-width: 18rem;")
+
+      .card-header
+        a href=editor_path(entity: name_entity_idtf) = name_entity_idtf
+
+      .card-body
+        h5.card-title = name_entity_text
+        - annotation_text = annotation_entity&.as_text || 'No annotation'
+        p.card-text data-toggle="tooltip" data-placement="top" title=annotation_text = annotation_text.truncate(100)

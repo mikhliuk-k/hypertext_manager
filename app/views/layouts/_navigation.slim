@@ -1,0 +1,27 @@
+ruby:
+
+.sidebar-sticky
+
+  ul.nav.flex-column
+    - is_active = -> (ctrl_name) { controller_name == ctrl_name ? 'active' : '' }
+
+    li.nav-item
+      a.nav-link class=[is_active.call('editor')] href="/"
+        span data-feather="home"
+        | Editor
+        span.sr-only (current)
+
+    li.nav-item
+      a.nav-link class=[is_active.call('entities')] href=entities_path
+        span data-feather="file"
+        | Entities
+
+    li.nav-item
+      a.nav-link class=[is_active.call('toolbox')] href=toolbox_path
+        span data-feather="file"
+        | Toolbox
+
+    li.nav-item
+      a.nav-link class=[is_active.call('search')] href=search_path
+        span data-feather="file"
+        | Search

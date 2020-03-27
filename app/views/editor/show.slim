@@ -1,0 +1,62 @@
+- stimulus_ctrl = "editor--show"
+
+div*{ data: { controller: stimulus_ctrl, "#{stimulus_ctrl}-url" => editor_path } }
+
+  .row.mb-3
+    .col.d-flex
+      button.mr-3 type="button" data-target="#{stimulus_ctrl}.previewButton" class="btn btn-primary" Preview
+      button.mr-3 type="button" data-target="#{stimulus_ctrl}.saveButton" class="btn btn-success" Save entity
+
+      .custom-file
+        input#customFile.custom-file-input type="file" /
+        label.custom-file-label for="customFile"  Choose file
+
+  .row.mb-4
+    .col
+      label for="editorTextarea" Editor
+      textarea#editorTextarea.form-control data-target="#{stimulus_ctrl}.editorWindow" rows="20"
+        = @hypertext ? @hypertext.as_raw : ""
+
+    .col
+      label Preview
+      div data-target="#{stimulus_ctrl}.previewWindow" style="height: 494px; background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 0.25rem; padding: 0.375rem 0.75rem; overflow-y: scroll"
+
+  .row.mb-2
+    .col
+      h4 Tag cheetsheets
+
+      h5 Semantic tags
+
+      p
+        span.font-weight-bold.text-nowrap \name [identifier={name}] { ... }
+        |&nbsp;- name of entity
+        ul
+          li identifier - system identifier for this entity. Can be used as relation in another entities.
+
+      p
+        span.font-weight-bold.text-nowrap \annotation { ... }
+        |&nbsp;- annotation for entity. Can be used to show show preview somewhere.
+
+      p
+        span.font-weight-bold.text-nowrap \link [entity={name}] { ... }
+        |&nbsp;- link to another entity. Using to fast transfer between entities. Also used in toolbox.
+        ul
+          li entity - link that you can go to.
+
+      p
+        span.font-weight-bold.text-nowrap \rel [type={entity} to={entity}] { ... }
+        |&nbsp;- Relation associated with this entity.
+        ul
+          li type - Entity that indicate relation.
+          li type - Entity that indicate relation target.
+
+      h5 Style tags
+
+      p
+        span.font-weight-bold.text-nowrap \style [color={color_name_or_code} font-weight={weight} font-style={style} font-size={size}] { ... }
+        |&nbsp;- Specify some style rules for this text block.
+        ul
+          li color - Set color as `red` or `blue` or as color code `#ccc`.
+          li font-weight - The font-weight property defines how bold you text are and there are a lot of possible values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900.
+          li font-style - Set different font styles for text: normal, italic, oblique.
+          li font-size - The font-size property sets the size of the font. This property is also used to compute the size of em, ex, and other relative <length> units.

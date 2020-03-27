@@ -17,6 +17,5 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
-import "jquery3"
-import "popper"
 import "bootstrap"
+import "toastr"

@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title HypertextEditor
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+
+    == render 'layouts/navbar'
+
+    .container-fluid
+      .row
+        nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+
+          == render 'layouts/navigation'
+
+        main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4 role="main"
+
+          == yield

@@ -1,0 +1,28 @@
+- controller = 'toolbox--show'
+
+component data-controller=controller
+
+  h3 Find the shortest path
+
+  .row.mb-3
+    .col-3
+      - entity_names = @all_entities.map { |e| e.get_tag(:name).params[:identifier] }
+
+      = select_tag 'source_entity', options_for_select(['Select source entity'] + entity_names),
+              class: "custom-select mb-3",
+              'data-target': "#{controller}.sourceEntity"
+
+      = select_tag 'dest_entity', options_for_select(['Select dest entity'] + entity_names),
+              class: "custom-select",
+              'data-target': "#{controller}.destEntity"
+
+  .row.mb-3
+    .col-3
+      button.mr-3.w-100 type="button" data-target="#{controller}.find" class="btn btn-primary" data-action="click->#{controller}#onFindClick"
+        | Find
+
+  h4 Result
+
+  .row
+    .col-3
+      ul.list-group data-target="#{controller}.resultList"

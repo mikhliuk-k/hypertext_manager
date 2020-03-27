@@ -1,0 +1,15 @@
+- controller = 'layouts--navbar'
+
+nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0 data-controller=controller
+
+  a.navbar-brand.col-sm-3.col-md-2.mr-0 href="#"  HyperText Editor
+
+  input.form-control.form-control-dark.w-100(
+    aria-label="Search" placeholder="Search"
+    type="text" data-target="#{controller}.search"
+    value=(request.params[:query] || '')
+    data-action="keyup->#{controller}#onSearchKeyUp")
+
+  ul.navbar-nav.px-3
+    li.nav-item.text-nowrap
+      a.nav-link href="#"  Sign out

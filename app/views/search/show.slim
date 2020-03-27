@@ -1,0 +1,9 @@
+h2 Search results
+
+- unless @search_results.blank?
+  - @search_results.each_with_index do |text_item, index|
+    li.list-group-item
+      = "#{index + 1}. "
+      a href="/editor?entity=#{text_item.identifier}" = text_item.get_tag(:name).as_text
+- else
+  | Results not found.

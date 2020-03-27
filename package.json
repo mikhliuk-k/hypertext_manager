@@ -2,12 +2,21 @@
   "name": "hypertext_editor",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "bootstrap.native": "^2.0.26",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "bootstrap": "^4.4.1",
+    "gyp": "^0.5.0",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
-    "turbolinks": "^5.2.0"
+    "toastr": "^2.1.4",
+    "turbolinks": "^5.2.0",
+    "@ttskch/select2-bootstrap4-theme": "^1.2.3",
+    "select2": "^4.0.10"
   },
   "version": "0.1.0",
   "devDependencies": {
